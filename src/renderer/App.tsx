@@ -1,9 +1,14 @@
-function App() {
-  return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)]">
-      <h1 className="text-2xl p-4">MiMoCode</h1>
-    </div>
-  )
-}
+import React from 'react';
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { ChatArea } from './components/Chat/ChatArea';
 
-export default App
+const App: React.FC = () => {
+  return (
+    <div className="flex h-screen bg-[var(--bg-primary)]">
+      <Sidebar />
+      <ChatArea />
+    </div>
+  );
+};
+
+export default App;
