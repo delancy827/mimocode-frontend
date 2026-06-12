@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { MemoryItem } from './MemoryItem';
 
+interface Memory {
+  id: string;
+  content: string;
+  type: string;
+  timestamp: Date;
+}
+
 export const MemoryPanel: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [memories, setMemories] = useState<any[]>([]);
+  const [memories] = useState<Memory[]>([]);
 
   return (
     <div className="flex flex-col h-full">
