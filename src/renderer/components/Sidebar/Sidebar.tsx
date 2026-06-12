@@ -2,7 +2,11 @@ import React from 'react';
 import { useTaskStore } from '../../stores/taskStore';
 import { TaskList } from './TaskList';
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onSettingsClick: () => void;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ onSettingsClick }) => {
   const { addTask } = useTaskStore();
 
   const handleNewTask = () => {
@@ -29,6 +33,14 @@ export const Sidebar: React.FC = () => {
       </div>
       <div className="flex-1 overflow-hidden">
         <TaskList />
+      </div>
+      <div className="p-3 border-t border-[var(--border-color)]">
+        <button
+          onClick={onSettingsClick}
+          className="w-full px-4 py-2 bg-[var(--bg-tertiary)] hover:bg-[var(--border-hover)] text-[var(--text-primary)] rounded-lg transition-colors"
+        >
+          ⚙ Settings
+        </button>
       </div>
     </div>
   );
